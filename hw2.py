@@ -14,6 +14,7 @@ from scipy.optimize import minimize
 import data_generator as dg
 
 
+
 # you can define/use whatever functions to implememt
 
 ########################################
@@ -54,12 +55,14 @@ def cross_entropy_softmax_loss(Wb, x, y, num_class, n, feat_dim):
     # print(s.shape)
     # print(y.shape)
 
+    all_total=0
     for i in range(n):
-     arr = np.array(s[y[i],i])
+     all_total += s[y[i],i]
 
     # print(arr)
 
-    cross_entropy_loss = np.mean(arr)
+    # cross_entropy_loss = np.mean(arr)
+    cross_entropy_loss = all_total/n
     # print(cross_entropy_loss)
     return cross_entropy_loss
 
